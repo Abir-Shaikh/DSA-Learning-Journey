@@ -10,7 +10,7 @@ public class Question1 {
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList<Integer>();
 
-        linkedList.add(10);
+        linkedList.add(11);
         linkedList.add(30);
         linkedList.add(50);
         linkedList.add(60);
