@@ -5,9 +5,8 @@ package LinkedList;
 public class question3 {
     static class Node {
         int data;
-
-        Question2.Node prev;
-        Question2.Node next;
+        Node prev;
+        Node next;
 
         Node(int data) {
             this.data = data;
@@ -16,15 +15,36 @@ public class question3 {
         }
     }
 
-    Question2.Node head;
-    Question2.Node tail;
+    Node head;
+    Node tail;
+    public void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = tail = newNode;
+            return;
+        }
+
+        newNode.next = head;
+        head.prev = newNode;
+        head = newNode;
+    }
+    public void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " - ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
 
     public static void main(String[] args) {
 
-        question3 dll = new Question2();
-        Question2.Node n1 = new Question2.Node(10);
-        Question2.Node n2 = new Question2.Node(20);
-        Question2.Node n3 = new Question2.Node(30);
+        question3 dll = new question3();
+        Node n1 = new Node(10);
+        Node n2 = new Node(20);
+        Node n3 = new Node(30);
 
         dll.head = n1;
         n1.next = n2;
@@ -34,9 +54,8 @@ public class question3 {
 
         n3.prev = n2;
         dll.tail = n3;
-
-
+        dll.insertAtBeginning(5);
+        dll.display();
     }
 }
 
-}
