@@ -1,4 +1,4 @@
-package LinkedList.LinkedlistRevision;
+package LinkedList.LinkedlistRevision.SinglyLL;
 
 public class SinglyLLConvertArrayToLL {
     public static class Node {

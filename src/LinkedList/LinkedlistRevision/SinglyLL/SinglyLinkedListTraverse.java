@@ -1,4 +1,4 @@
-package LinkedList.LinkedlistRevision;
+package LinkedList.LinkedlistRevision.SinglyLL;
 
 public class SinglyLinkedListTraverse {
     public static class Node {
