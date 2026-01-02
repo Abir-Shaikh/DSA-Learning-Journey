@@ -1,6 +1,6 @@
 package LinkedList.LinkedlistRevision.DoublyLL;
 
-public class DoublyLinkedListInsertBeforeHead {
+public class DoublyLinkedListInsertBeforeTail {
     public static class Node{
         int data;
         Node prev;
@@ -40,28 +40,7 @@ public class DoublyLinkedListInsertBeforeHead {
         return head;
     }
 
-    public static Node InsertBeforeHead(Node head , int val){
-        //used the existing constructors
-        Node newHead = new Node(val);
-        //connected forward
-        newHead.next = head;
-        if (head != null) {
-            //connected backward
-            head.prev = newHead;
-        }
-        return newHead;
-    }
+    public static Node InsertBeforeTail{
 
-    static void main(String[] args) {
-        int[] arr = {10 , 20 , 30 , 40 , 50};
-        Node head = convertArrtoDLL(arr);
-
-        System.out.println("Before Insertion : ");
-        traverse(head);
-
-        head = InsertBeforeHead(head , 90);
-
-        System.out.println("After Insertion before head : ");
-        traverse(head);
     }
 }
