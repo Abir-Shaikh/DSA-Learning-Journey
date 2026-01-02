@@ -40,7 +40,42 @@ public class DoublyLinkedListInsertBeforeTail {
         return head;
     }
 
-    public static Node InsertBeforeTail{
+    public static Node InsertBeforeTail(Node head , int val){
+        //edge case
+        if(head == null) return new Node(val);
 
+        //for single node list
+        if (head.next == null) {
+            return InsertBeforeTail(head, val);
+        }
+        //find tail
+        Node tail = head;
+        while (tail.next != null){
+            tail = tail.next;
+        }
+        Node prev = tail.prev;
+        Node newNode = new Node(val);
+        //link new node
+        prev.next = newNode;
+        newNode.prev = prev;
+
+        newNode.next = tail;
+        tail.prev = newNode;
+
+        return head;
+
+    }
+
+    static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        Node head = convertArrtoDLL(arr);
+
+        System.out.println("Before insertion:");
+        traverse(head);
+
+        head = InsertBeforeTail(head, 99);
+
+        System.out.println("After inserting before tail:");
+        traverse(head);
     }
 }
