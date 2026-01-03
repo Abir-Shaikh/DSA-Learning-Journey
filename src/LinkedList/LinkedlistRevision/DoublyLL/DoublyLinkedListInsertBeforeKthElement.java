@@ -55,10 +55,6 @@ public class DoublyLinkedListInsertBeforeKthElement {
 
 
     public static Node InsertAtKthElement(Node head , int k , int val){
-        //for invalid position
-        if (k <= 0) {
-            return head;
-        }
 
         //for inserting before head
         if (k == 1) {
@@ -100,7 +96,7 @@ public class DoublyLinkedListInsertBeforeKthElement {
         System.out.println("Before insertion:");
         traverse(head);
 
-        head = InsertAtKthElement(head, 3 , 99);
+        head = InsertAtKthElement(head, 1 , 99);
 
         System.out.println("After before inserting at kth element : ");
         traverse(head);
