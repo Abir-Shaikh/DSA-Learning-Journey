@@ -1,16 +1,20 @@
-package recursion;
+package Recursion;
 
 public class Question1 {
+    public static void main(String[] args) {
+        System.out.println("Starting countdown from 10:");
+        countDown(10);
 
-        public static void main(String[] args) {
-            System.out.println(show(5));
+        System.out.println("\nStarting countdown from 3:");
+        countDown(3);
+    }
+    public static void countDown(int n) {
+        if (n <= 0) {
+            System.out.println("Done!");
+            return;
         }
-        public static int show(int n){
-            if (n == 0) {
-                return 0;
-            }
-            show(n -1);
-            return n + show(n-1);
-        }
+        System.out.println(n);
+        countDown(n - 1);
     }
 
+}
