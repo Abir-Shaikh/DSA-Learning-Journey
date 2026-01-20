@@ -13,7 +13,7 @@ public class Question4 {
     public static void main(String[] args) {
         Question4 obj = new Question4();
 
-        int n = 90;
+        int n = 41;
         System.out.print("Numbers -> ");
         obj.printNumbers(n);
     }
