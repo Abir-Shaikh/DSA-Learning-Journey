@@ -29,6 +29,9 @@ public class l1 {
         return head;
     }
 
+    //delete tail
+
+
     static void main(String[] args) {
         Node head = new Node(4);
         head.next = new Node(5);
