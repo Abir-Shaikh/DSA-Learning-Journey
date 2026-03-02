@@ -42,6 +42,32 @@ public class l1 {
         return head;
     }
 
+    //delete at any position
+    public static Node DeleteAtanyPosition(Node head , int k){
+        if (head == null) {
+            return head;
+        }
+        if(k == 1){
+            head = head.next;
+            return head;
+        }
+        int counter = 0;
+        Node prev = null;
+        Node temp = head;
+
+
+        while (temp != null){
+            counter++;
+            if (counter == k) {
+                prev.next = prev.next.next;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
+
    public static void main(String[] args) {
         Node head = new Node(4);
         head.next = new Node(5);
@@ -52,7 +78,7 @@ public class l1 {
         System.out.println("Before Deleting : ");
         traverse(head);
 
-        head = DeleteTail(head);
+        head = DeleteAtanyPosition(head , 4);
 
         System.out.println("After deleting : ");
         traverse(head);
