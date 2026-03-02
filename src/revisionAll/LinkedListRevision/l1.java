@@ -30,21 +30,31 @@ public class l1 {
     }
 
     //delete tail
+    public static Node DeleteTail(Node head){
+        if (head == null || head.next == null) {
+            return null;
+        }
+        Node temp = head;
+        while (temp.next.next != null){
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+    }
 
-
-    static void main(String[] args) {
+   public static void main(String[] args) {
         Node head = new Node(4);
         head.next = new Node(5);
         head.next.next = new Node(6);
         head.next.next.next = new Node(10);
         head.next.next.next.next = new Node(12);
 
-        System.out.println("Before Deleting head : ");
+        System.out.println("Before Deleting : ");
         traverse(head);
 
-        head = DeleteHead(head);
+        head = DeleteTail(head);
 
-        System.out.println("After deleting head : ");
+        System.out.println("After deleting : ");
         traverse(head);
     }
 }
