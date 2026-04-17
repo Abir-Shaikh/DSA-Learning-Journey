@@ -16,16 +16,29 @@ public class singlyLinkedList {
             System.out.print(temp.data + " -> ");
             temp = temp.next;
         }
-        System.out.print("null");
-}
+        System.out.println("null");
+    }
+
+
+    //insert at head
+    public static Node insertAtHead(Node head , int val){
+        Node node = new Node(val);
+        node.next = head;
+        return node;
+    }
 
     public static void main(String[] args) {
         Node head = new Node(2);
-        head.next = new Node(5);
-        head.next.next = new Node(8);
+        head.next = new Node(3);
+        head.next.next = new Node(6);
         head.next.next.next = new Node(7);
 
-        System.out.println("Traversing : ");
+        System.out.println("Before inserting head: ");
+        traverse(head);
+
+        head = insertAtHead(head , 5);
+
+        System.out.println("After inserting head: ");
         traverse(head);
     }
 }
