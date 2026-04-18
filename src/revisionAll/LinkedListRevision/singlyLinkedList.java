@@ -27,6 +27,20 @@ public class singlyLinkedList {
         return node;
     }
 
+    //insert at tail
+    public static Node insertAtTail(Node head , int val){
+        if (head == null) {
+            return new Node(val);
+        }
+        Node temp = head;
+        while (temp.next != null){
+            temp = temp.next;
+        }
+        Node node = new Node(val);
+        temp.next = node;
+        return head;
+    }
+
     public static void main(String[] args) {
         Node head = new Node(2);
         head.next = new Node(3);
@@ -36,7 +50,7 @@ public class singlyLinkedList {
         System.out.println("Before inserting head: ");
         traverse(head);
 
-        head = insertAtHead(head , 5);
+        head = insertAtTail(head , 5);
 
         System.out.println("After inserting head: ");
         traverse(head);
