@@ -1,6 +1,6 @@
 package revisionAll.LinkedListRevision;
 
-public class singlyLinkedList {
+public class singlyLinkedList_Insertion {
     public static class Node{
         int data ;
         Node next;
