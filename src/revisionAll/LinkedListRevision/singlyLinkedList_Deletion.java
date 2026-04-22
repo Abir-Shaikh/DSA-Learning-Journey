@@ -1,5 +1,7 @@
 package revisionAll.LinkedListRevision;
 
+import com.sun.source.tree.BreakTree;
+
 public class singlyLinkedList_Deletion {
     public static class Node{
         int data;
@@ -38,6 +40,29 @@ public class singlyLinkedList_Deletion {
         return head;
     }
 
+    //delete kth
+    public static Node deleteKth(Node head , int k) {
+        if (head == null) return null;
+
+        if (k == 1) {
+            return head.next;
+        }
+
+        Node temp = head;
+        int ctr = 0;
+        Node prev = null;
+        while (temp != null) {
+            ctr++;
+            if (ctr == k) {
+                prev.next = prev.next.next;
+                break;
+            }
+        prev = temp;
+        temp = temp.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         Node head = new Node(4);
         head.next = new Node(5);
@@ -48,7 +73,7 @@ public class singlyLinkedList_Deletion {
         System.out.println("Before Deleting : ");
         traverse(head);
 
-        head = deleteTail(head);
+        head = deleteKth(head , 3);
 
         System.out.println("After deleting : ");
         traverse(head);
