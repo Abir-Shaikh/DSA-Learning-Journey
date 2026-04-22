@@ -26,6 +26,18 @@ public class singlyLinkedList_Deletion {
         return head.next;
     }
 
+    //delete tail
+    public static Node deleteTail(Node head){
+        if (head == null || head.next == null) return null;
+
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+    }
+
     public static void main(String[] args) {
         Node head = new Node(4);
         head.next = new Node(5);
@@ -36,7 +48,7 @@ public class singlyLinkedList_Deletion {
         System.out.println("Before Deleting : ");
         traverse(head);
 
-        head = deleteHead(head);
+        head = deleteTail(head);
 
         System.out.println("After deleting : ");
         traverse(head);
