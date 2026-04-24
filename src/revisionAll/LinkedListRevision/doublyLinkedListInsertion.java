@@ -35,6 +35,13 @@ public class doublyLinkedListInsertion {
         return head;
     }
 
+    private static Node InsertBeforeHead(Node head , int val){
+        Node newHead = new Node(val);
+        newHead.next = head;
+        if(head!= null) head.prev = newHead;
+        return newHead;
+    }
+
     public static void main(String[] args) {
         int[] arr = {10 , 20 , 30 , 40 , 50};
         Node head = convertArrtoDLL(arr);
@@ -43,7 +50,7 @@ public class doublyLinkedListInsertion {
         System.out.println("Before : ");
         traverse(head);
 
-        head = convertArrtoDLL(arr);
+        head = InsertBeforeHead(head , 8);
 
         System.out.println("After : ");
         traverse(head);
