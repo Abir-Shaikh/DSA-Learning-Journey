@@ -62,6 +62,27 @@ public class doublyLinkedListInsertion {
         return head;
     }
 
+    private static Node InsertBeforeKthElement(Node head , int element , int k){
+        if(head == null) return new Node(element);
+
+        if(k == 1) return InsertBeforeHead(head , element);
+
+        int counter = 1;
+        Node temp = head ;
+
+        while (counter != k-1){
+            temp = temp.next;
+            counter++;
+        }
+            Node newNode = new Node(element);
+            Node x = temp.next;
+            temp.next = newNode;
+            newNode.prev = temp;
+            newNode.next = x;
+            x.prev = newNode;
+        return head;
+    }
+
     public static void main(String[] args) {
         int[] arr = {10 , 20 , 30 , 40 , 50};
         Node head = convertArrtoDLL(arr);
@@ -70,20 +91,20 @@ public class doublyLinkedListInsertion {
         System.out.println("Before : ");
         traverse(head);
 
-        head = InsertBeforeTail(head , 8);
+        head = InsertBeforeKthElement(head , 8 , 2);
 
         System.out.println("After : ");
         traverse(head);
 
 
-
+//
 //        int[] arr = {10};
 //        Node head = convertArrtoDLL(arr);
 //
 //        System.out.println("Before : ");
 //        traverse(head);
 //
-//        head = InsertBeforeTail(head, 8);
+//        head = InsertBeforeKthElement(head, 8 ,1);
 //
 //        System.out.println("After : ");
 //        traverse(head);
