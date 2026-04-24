@@ -30,6 +30,7 @@ public class doublyLinkedListInsertion {
         for (int i = 1; i < arr.length; i++) {
             Node temp = new Node(arr[i]);
             prev.next = temp;
+            temp.prev = prev;
             prev = temp;
         }
         return head;
@@ -42,6 +43,25 @@ public class doublyLinkedListInsertion {
         return newHead;
     }
 
+    private static Node InsertBeforeTail(Node head , int element){
+        if(head == null) return new Node(element);
+
+        if(head.next == null) return InsertBeforeHead(head , element);
+
+        Node tail = head;
+        while(tail.next!=null){
+            tail = tail.next;
+        }
+        Node prev = tail.prev;//reference rakhlam
+        Node newNode = new Node(element);//new element
+        prev.next = newNode;//40s next = new
+        newNode.prev = prev;//new's prev = 40s prev
+        newNode.next = tail;//new's next = 50s
+        tail.prev = newNode;//50s prev = new
+
+        return head;
+    }
+
     public static void main(String[] args) {
         int[] arr = {10 , 20 , 30 , 40 , 50};
         Node head = convertArrtoDLL(arr);
@@ -50,9 +70,22 @@ public class doublyLinkedListInsertion {
         System.out.println("Before : ");
         traverse(head);
 
-        head = InsertBeforeHead(head , 8);
+        head = InsertBeforeTail(head , 8);
 
         System.out.println("After : ");
         traverse(head);
+
+
+
+//        int[] arr = {10};
+//        Node head = convertArrtoDLL(arr);
+//
+//        System.out.println("Before : ");
+//        traverse(head);
+//
+//        head = InsertBeforeTail(head, 8);
+//
+//        System.out.println("After : ");
+//        traverse(head);
     }
 }
