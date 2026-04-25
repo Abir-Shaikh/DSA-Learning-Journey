@@ -1,7 +1,5 @@
 package revisionAll.LinkedListRevision;
 
-import javax.management.NotificationFilter;
-
 public class dllDeletion {
 
     public static class Node{
@@ -48,6 +46,21 @@ public class dllDeletion {
         return head;
     }
 
+    public static Node deleteTail(Node head){
+        if (head == null||head.next == null) return null;
+
+        Node tail = head;
+        while (tail.next != null){
+            tail = tail.next;
+        }
+
+        Node nTail = tail.prev;
+        nTail.next = null;
+        tail.prev = null;
+
+        return head;
+    }
+
     public static void main(String[] args) {
         int[] arr = {12 , 14 , 5 , 7 , 9};
         Node head = convertArrToDLL(arr);
@@ -55,7 +68,7 @@ public class dllDeletion {
         System.out.println("Before : ");
         traverse(head);
 
-        head = deleteHead(head);
+        head = deleteTail(head);
 
         System.out.println("After : ");
         traverse(head);
