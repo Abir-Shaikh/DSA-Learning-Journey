@@ -56,7 +56,7 @@ public class DoublyLinkedListDeleteTail {
         return head;
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         int[] arr = {12, 15, 17, 19};
 
         Node head = convertArrtoDLL(arr);
