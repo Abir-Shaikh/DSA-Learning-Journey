@@ -61,6 +61,30 @@ public class dllDeletion {
         return head;
     }
 
+    public static Node deleteKth(Node head , int k){
+        if (head == null) return null;
+        if (k==1) return deleteHead(head);
+
+        int ctr = 1;
+        Node kth = head;
+        while (ctr != k){
+            kth = kth.next;
+            ctr++;
+        }
+
+        Node prev1 = kth.prev;
+        Node next1 = kth.next;
+        prev1.next = next1;
+
+        if (next1 != null){
+            next1.prev = prev1;
+        }
+
+        kth.next = null;
+        kth.prev = null;
+        return head;
+    }
+
     public static void main(String[] args) {
         int[] arr = {12 , 14 , 5 , 7 , 9};
         Node head = convertArrToDLL(arr);
@@ -68,7 +92,7 @@ public class dllDeletion {
         System.out.println("Before : ");
         traverse(head);
 
-        head = deleteTail(head);
+        head = deleteKth(head , 2);
 
         System.out.println("After : ");
         traverse(head);
