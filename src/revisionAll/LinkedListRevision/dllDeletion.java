@@ -1,0 +1,63 @@
+package revisionAll.LinkedListRevision;
+
+import javax.management.NotificationFilter;
+
+public class dllDeletion {
+
+    public static class Node{
+        int data;
+        Node next ;
+        Node prev;
+
+        Node(int data){
+            this.data = data;
+            this.next = null;
+            this.prev = null;
+        }
+    }
+
+    private static void traverse(Node head){
+        Node temp = head;
+        while (temp!=null){
+            System.out.print(temp.data + " <-> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    private static Node convertArrToDLL(int[] arr){
+        Node head = new Node(arr[0]);
+        Node prev = head;
+
+        for (int i = 1; i < arr.length; i++) {
+            Node temp = new Node(arr[i]);
+            prev.next = temp;
+            temp.prev = prev;
+            prev = temp;
+        }
+        return head;
+    }
+
+    public static Node deleteHead(Node head){
+        if (head == null || head.next == null) return null;
+
+        Node oHead = head;
+        head = head.next;
+        head.prev = null;
+        oHead.next = null;
+        return head;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {12 , 14 , 5 , 7 , 9};
+        Node head = convertArrToDLL(arr);
+
+        System.out.println("Before : ");
+        traverse(head);
+
+        head = deleteHead(head);
+
+        System.out.println("After : ");
+        traverse(head);
+    }
+}
