@@ -9,7 +9,7 @@ public class Question6 {
         return n%10 + sum(n/10);
     }
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
         int n = 531;
         System.out.println(sum(n));
     }
