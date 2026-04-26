@@ -1,15 +1,15 @@
 package revisionAll.recursion;
 
 public class q1 {
-    public static void printName(int n){
+    public static void printHello(int n){
         if (n == 0) {
             return;
         }
         System.out.println("Hello");
-        printName(n-1);
+        printHello(n-1);
     }
 
     public static void main(String[] args) {
-        printName(10);
+        printHello(10);
     }
 }
